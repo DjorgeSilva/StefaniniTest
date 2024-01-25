@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   imageWrapper: {
-    marginBottom: 30,
+    marginBottom: 0,
   },
   title: {
     width: "100%",
