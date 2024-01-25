@@ -99,6 +99,49 @@ app.post("/auth/register", async (req, resp) => {
   }
 });
 
+// Login Route
+app.post("/auth/login", async (req, res) => {
+  const { email, password } = req.body;
+  // validation
+  if (!email) {
+    return res.status(400).json({
+      code: 400,
+      msg: "email é obrigatório",
+    });
+  }
+
+  if (!password) {
+    return res.status(400).json({
+      code: 400,
+      msg: "senha é obrigatório",
+    });
+  }
+
+  const user = await User.findOne({
+    email,
+  });
+
+  if (!user) {
+    return res.status(400).json({
+      code: 400,
+      msg: "email inválido",
+    });
+  }
+
+  // check password
+  const isPasswordValid = await bcrypt.compare(password, user.password);
+  if (!isPasswordValid) {
+    return res.status(400).json({
+      code: 400,
+      msg: "senha inválida",
+    });
+  }
+  res.status(200).json({
+    code: 200,
+    msg: "login efetuado com sucesso",
+  });
+});
+
 mongoose
   .connect(process.env.DATA_BASE_URI)
   .then(() => {
