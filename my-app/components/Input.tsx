@@ -4,7 +4,7 @@ import { StyleSheet, Text, TextInput, View } from "react-native";
 import { COLORS, SIZES } from "../constants";
 import { getInputIcon, getInputLabel } from "../utils";
 
-export const CustomInput = (props: any) => {
+export const Input = (props: any) => {
   const {
     field: { name, onBlur, onChange, value },
     form: { errors, touched, setFieldTouched },
