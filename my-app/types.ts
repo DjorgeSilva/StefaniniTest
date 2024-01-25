@@ -49,3 +49,8 @@ export type ApiResponseType = {
     email: string;
   };
 };
+
+export type LoginFormType = {
+  email: string;
+  password: string;
+};

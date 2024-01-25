@@ -1,4 +1,4 @@
-import { RegisterFormType } from "./types";
+import { LoginFormType, RegisterFormType } from "./types";
 
 export const EMPTY_STRING = "";
 export const SIZES = {
@@ -30,4 +30,9 @@ export const INITIAL_REGISTER_FORM_VALUES: RegisterFormType = {
   email: EMPTY_STRING,
   password: EMPTY_STRING,
   confirmPassword: EMPTY_STRING,
+};
+
+export const INITIAL_LOGIN_FORM_VALUES: LoginFormType = {
+  email: EMPTY_STRING,
+  password: EMPTY_STRING,
 };
