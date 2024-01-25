@@ -1,4 +1,5 @@
 import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 export type CustomButtonType = {
   onPress: () => void;
   title: string;
@@ -18,3 +19,19 @@ export type BottomTabNavigationType = {
 
 export type BottomTabNavigationProp =
   BottomTabScreenProps<BottomTabNavigationType>;
+
+export type StackNavigationType = {
+  BottomNavigationTab: undefined;
+  Register: undefined;
+  Search: undefined;
+  Login: undefined;
+};
+
+export type StackNavigationProp = NativeStackScreenProps<StackNavigationType>;
+
+export type RegisterFormType = {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+};

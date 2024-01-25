@@ -1,3 +1,6 @@
+import { RegisterFormType } from "./types";
+
+export const EMPTY_STRING = "";
 export const SIZES = {
   EXTRA_SMALL: 15,
   SMALL: 20,
@@ -18,4 +21,11 @@ export const COLORS = {
   light_purple: "#3F3D56",
   success_color: "#2AD265",
   alert_color: "##F78400",
+};
+
+export const INITIAL_REGISTER_FORM_VALUES: RegisterFormType = {
+  name: EMPTY_STRING,
+  email: EMPTY_STRING,
+  password: EMPTY_STRING,
+  confirmPassword: EMPTY_STRING,
 };
