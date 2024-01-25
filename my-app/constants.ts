@@ -25,6 +25,8 @@ export const COLORS = {
 
 export const INITIAL_REGISTER_FORM_VALUES: RegisterFormType = {
   name: EMPTY_STRING,
+  age: EMPTY_STRING,
+  job: EMPTY_STRING,
   email: EMPTY_STRING,
   password: EMPTY_STRING,
   confirmPassword: EMPTY_STRING,
