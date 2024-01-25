@@ -7,6 +7,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// Home Route
+app.get("/", (req, resp) => {
+  resp.status(200).json({
+    msg: "connected",
+  });
+});
+
 mongoose
   .connect(process.env.DATA_BASE_URI)
   .then(() => {
