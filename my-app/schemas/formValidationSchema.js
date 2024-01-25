@@ -5,6 +5,8 @@ export const userRegisterValidationSchema = yup.object().shape({
     .string()
     .matches(/(\w.+\s).+/, "Nome deve conter sobrenome")
     .required("Nome é obrigatório"),
+  age: yup.number().typeError("Idade inválida").required("Idade é obrigatório"),
+  job: yup.string().required("Cargo é obrigatório"),
   email: yup.string().email("Email inválido").required("Email é obrigatório"),
   password: yup
     .string()
