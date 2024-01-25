@@ -18,12 +18,24 @@ app.get("/", (req, resp) => {
 
 // Register Route
 app.post("/auth/register", async (req, resp) => {
-  const { name, email, password, confirmPassword } = req.body;
+  const { name, age, job, email, password, confirmPassword } = req.body;
   //validate body
   if (!name) {
     return resp.status(400).json({
       code: 400,
       msg: "nome é obrigatório",
+    });
+  }
+  if (!age) {
+    return resp.status(400).json({
+      code: 400,
+      msg: "idade é obrigatório",
+    });
+  }
+  if (!job) {
+    return resp.status(400).json({
+      code: 400,
+      msg: "cargo é obrigatório",
     });
   }
   if (!email) {
@@ -77,6 +89,8 @@ app.post("/auth/register", async (req, resp) => {
       msg: "cadastrado com sucesso!",
       data: {
         name: newUser.name,
+        age: newUser.age,
+        job: newUser.job,
         email: newUser.email,
       },
     });
