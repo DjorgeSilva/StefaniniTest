@@ -2,15 +2,19 @@ import { Link } from "@react-navigation/native";
 import { Field, Formik, FormikProps } from "formik";
 import { ReactElement, useEffect, useRef, useState } from "react";
 import { Dimensions, ScrollView, Text, View } from "react-native";
+import Toast from "react-native-root-toast";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useDispatch } from "react-redux";
 import Button from "../../components/Button";
 import { Input } from "../../components/Input";
 import { COLORS, INITIAL_LOGIN_FORM_VALUES } from "../../constants";
+import loginUser from "../../controllers/loginController";
 import { userLoginValidationSchema } from "../../schemas/formValidationSchema";
 import { LoginFormType, StackNavigationProp } from "../../types";
 import { styles } from "./styles";
 
 const Login = ({ navigation }: StackNavigationProp): ReactElement => {
+  const dispatch = useDispatch();
   const ref = useRef<FormikProps<LoginFormType>>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -27,8 +31,18 @@ const Login = ({ navigation }: StackNavigationProp): ReactElement => {
 
   const onSubmit = async (values: LoginFormType) => {
     setIsLoading(true);
+    const resp = await loginUser(values);
+    if (resp.code !== 200) {
+      setIsLoading(false);
+      return Toast.show(resp.msg, {
+        duration: Toast.durations.SHORT,
+        backgroundColor: COLORS.red,
+        position: -145,
+      });
+    }
+    setIsLoading(false);
+    navigation.navigate("BottomNavigationTab");
   };
-
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
