@@ -39,4 +39,5 @@ export const INITIAL_LOGIN_FORM_VALUES: LoginFormType = {
 
 export const ACTIONS_REDUX = {
   SET_USER: "SET_USER",
+  SET_CURRENT_USER: "SET_CURRENT_USER",
 };

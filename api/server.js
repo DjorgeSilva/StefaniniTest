@@ -149,6 +149,7 @@ app.post("/auth/login", async (req, res) => {
   res.status(200).json({
     code: 200,
     msg: "login efetuado com sucesso",
+    data: user,
   });
 });
 

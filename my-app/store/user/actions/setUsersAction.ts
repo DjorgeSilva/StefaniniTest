@@ -11,3 +11,14 @@ export function setUsersAction(payload: PayloadType) {
     payload: payload.users,
   };
 }
+
+export type SetUserPayloadType = {
+  currentUser: UserType;
+};
+
+export function setCurrentUser(payload: SetUserPayloadType) {
+  return {
+    type: ACTIONS_REDUX.SET_CURRENT_USER,
+    payload: payload.currentUser,
+  };
+}

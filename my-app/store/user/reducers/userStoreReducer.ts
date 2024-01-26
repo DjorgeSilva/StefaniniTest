@@ -9,6 +9,7 @@ type GetUserActionType = {
 };
 
 const initialState = {
+  currentUser: {},
   userList: [],
 };
 
@@ -18,6 +19,11 @@ const userStoreReducer = (state = initialState, action: GetUserActionType) => {
       return {
         ...state,
         userList: action.payload,
+      };
+    case ACTIONS_REDUX.SET_CURRENT_USER:
+      return {
+        ...state,
+        currentUser: action.payload,
       };
     default:
       return state;

@@ -10,7 +10,8 @@ import { Input } from "../../components/Input";
 import { COLORS, INITIAL_LOGIN_FORM_VALUES } from "../../constants";
 import loginUser from "../../controllers/loginController";
 import { userLoginValidationSchema } from "../../schemas/formValidationSchema";
-import { LoginFormType, StackNavigationProp } from "../../types";
+import { setCurrentUser } from "../../store/user/actions/setUsersAction";
+import { LoginFormType, StackNavigationProp, UserType } from "../../types";
 import { styles } from "./styles";
 
 const Login = ({ navigation }: StackNavigationProp): ReactElement => {
@@ -39,6 +40,13 @@ const Login = ({ navigation }: StackNavigationProp): ReactElement => {
         backgroundColor: COLORS.red,
         position: -145,
       });
+    }
+    if(resp && resp.data){
+      dispatch(
+        setCurrentUser({
+          currentUser: resp.data as unknown as UserType,
+        })
+      );
     }
     setIsLoading(false);
     navigation.navigate("BottomNavigationTab");
