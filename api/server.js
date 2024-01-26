@@ -10,9 +10,17 @@ app.use(express.json());
 app.use(cors());
 
 // Home Route
-app.get("/", (req, resp) => {
+app.get("/users", async (req, resp) => {
+  const users = await User.find();
+  if (!users) {
+    return resp.status(404).json({
+      code: 404,
+      msg: "nenhum usuário cadastrado",
+    });
+  }
   resp.status(200).json({
     msg: "connected",
+    data: users,
   });
 });
 
@@ -82,6 +90,8 @@ app.post("/auth/register", async (req, resp) => {
       name,
       email,
       password: hashedPassword,
+      job: job,
+      email: email,
     });
     await newUser.save();
     return resp.status(200).json({
