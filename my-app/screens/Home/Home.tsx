@@ -50,7 +50,7 @@ const Home = ({ navigation, route }: BottomTabNavigationProp): ReactElement => {
                   <View key={index} style={styles.userCard}>
                     <Text style={styles.cardLabel}>nome: {user.name}</Text>
                     <Text style={styles.cardLabel}>
-                      age: {user.age ?? "não informado"}
+                      idade: {user.age ?? "não informado"}
                     </Text>
                     <Text style={styles.cardLabel}>
                       cargo: {user.job ?? "não informado"}
