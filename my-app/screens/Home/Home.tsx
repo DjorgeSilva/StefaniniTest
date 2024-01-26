@@ -4,12 +4,15 @@ import { StatusBar } from "expo-status-bar";
 import React, { ReactElement, useEffect, useState } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useDispatch } from "react-redux";
 import Search from "../../components/Search";
 import { COLORS } from "../../constants";
 import fetchUsers from "../../controllers/fetchUsers";
+import { setUsersAction } from "../../store/user/actions/setUsersAction";
 import { BottomTabNavigationProp, UserType } from "../../types";
 
 const Home = ({ navigation, route }: BottomTabNavigationProp): ReactElement => {
+  const dispatch = useDispatch();
   const [userList, setUserList] = useState<UserType[]>([]);
 
   useEffect((): void => {
@@ -20,6 +23,11 @@ const Home = ({ navigation, route }: BottomTabNavigationProp): ReactElement => {
       }>(`${HOST}:${PORT}/users`)
         .then((result) => {
           setUserList(result.data);
+          dispatch(
+            setUsersAction({
+              users: result.data,
+            })
+          );
         })
         .catch((error) => {
           console.error(error);

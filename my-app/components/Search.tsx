@@ -30,7 +30,6 @@ const Search = ({ navigation, onChange }: SearchProps): ReactElement => {
         <Ionicons name="search" size={SIZES.SMALL} color={COLORS.dark_gray} />
       </TouchableOpacity>
       <TextInput
-        showSoftInputOnFocus={!onChange}
         placeholder="Pesquise por um colaborador"
         onFocus={() => navigation.navigate("Search")}
         style={styles.input}
