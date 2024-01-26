@@ -16,8 +16,8 @@ export const styles = StyleSheet.create({
     textTransform: "uppercase",
     fontSize: SIZES.LARGE,
     color: COLORS.green,
-    paddingVertical: 10,
     marginTop: 20,
+    marginBottom: 30,
   },
   formWrapper: {
     flex: 1,
@@ -28,16 +28,17 @@ export const styles = StyleSheet.create({
   },
   textInput: {
     width: "100%",
-    height: 40,
+    height: 35,
     backgroundColor: COLORS.white,
     borderWidth: StyleSheet.hairlineWidth,
     borderRadius: BORDER_RADIUS,
     paddingLeft: 10,
   },
   link: {
-    marginVertical: 20,
+    marginTop: 15,
     textAlign: "center",
     fontSize: 18,
     color: COLORS.green,
+    marginBottom: 30,
   },
 });

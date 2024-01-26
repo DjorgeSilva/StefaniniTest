@@ -48,19 +48,19 @@ const styles = StyleSheet.create({
   },
   inputWrapper: {
     width: "100%",
-    height: 60,
+    height: 35,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
   },
   icon: {
     right: 8,
-    top: 25,
+    top: 12,
     zIndex: 1000,
     position: "absolute",
   },
   textInput: {
-    height: 40,
+    height: 35,
     width: "100%",
     marginTop: 10,
     backgroundColor: COLORS.white,

@@ -63,7 +63,7 @@ const Register = ({ navigation }: StackNavigationProp): ReactElement => {
             <View
               style={{
                 ...styles.formWrapper,
-                height: Dimensions.get("window").height - 120,
+                height: Dimensions.get("window").height - 100,
               }}
             >
               <Field component={Input} name={"name"} />
@@ -76,7 +76,12 @@ const Register = ({ navigation }: StackNavigationProp): ReactElement => {
                 name={"confirmPassword"}
                 secureTextEntry
               />
-              <View style={{ flex: 1, justifyContent: "flex-end" }}>
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: "flex-end",
+                }}
+              >
                 <Button
                   style={{ backgroundColor: COLORS.green, color: COLORS.white }}
                   onPress={() => handleSubmit()}

@@ -41,7 +41,7 @@ const Login = ({ navigation }: StackNavigationProp): ReactElement => {
         position: -145,
       });
     }
-    if(resp && resp.data){
+    if (resp && resp.data) {
       dispatch(
         setCurrentUser({
           currentUser: resp.data as unknown as UserType,
@@ -67,7 +67,7 @@ const Login = ({ navigation }: StackNavigationProp): ReactElement => {
             <View
               style={{
                 ...styles.formWrapper,
-                height: Dimensions.get("window").height - 120,
+                height: Dimensions.get("window").height - 100,
               }}
             >
               <Field component={Input} name={"email"} />

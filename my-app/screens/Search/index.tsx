@@ -58,9 +58,7 @@ const Search = ({ navigation, route, onChange }: SearchProps): ReactElement => {
                 );
               })
             ) : (
-              <View style={styles.noUserWrapper}>
-                <Text>Nenhum usuário encontrado</Text>
-              </View>
+              <View></View>
             )}
           </View>
         </View>
@@ -111,13 +109,5 @@ const styles = StyleSheet.create({
   cardLabel: {
     textAlign: "center",
     fontSize: 12,
-  },
-  noUserWrapper: {
-    flex: 1,
-    height: 400,
-
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
   },
 });
