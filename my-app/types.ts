@@ -63,3 +63,9 @@ export type LoginFormType = {
   email: string;
   password: string;
 };
+
+export type InputProps = {
+  onChange?: (value: string) => void;
+};
+
+export type SearchProps = BottomTabNavigationProp & InputProps;
