@@ -30,6 +30,15 @@ export type StackNavigationType = {
 
 export type StackNavigationProp = NativeStackScreenProps<StackNavigationType>;
 
+export type UserType = {
+  _id: string;
+  name: string;
+  age: string;
+  job: string;
+  email: string;
+  password: string;
+};
+
 export type RegisterFormType = {
   name: string;
   age: string;
