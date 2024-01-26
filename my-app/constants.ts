@@ -36,3 +36,7 @@ export const INITIAL_LOGIN_FORM_VALUES: LoginFormType = {
   email: EMPTY_STRING,
   password: EMPTY_STRING,
 };
+
+export const ACTIONS_REDUX = {
+  SET_USER: "SET_USER",
+};
