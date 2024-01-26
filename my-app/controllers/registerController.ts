@@ -1,5 +1,4 @@
 import { HOST, PORT } from "@env";
-import { EMPTY_STRING } from "../constants";
 import { ApiResponseType, RegisterFormType } from "../types";
 
 export default async function registerUserPost(
@@ -23,12 +22,6 @@ export default async function registerUserPost(
     return {
       code: 500,
       msg: "error when saving new user",
-      data: {
-        name: data.email,
-        age: EMPTY_STRING,
-        job: EMPTY_STRING,
-        email: EMPTY_STRING,
-      },
     };
   }
 }
