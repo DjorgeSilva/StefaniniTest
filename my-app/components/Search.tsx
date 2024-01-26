@@ -1,13 +1,26 @@
 import { Ionicons } from "@expo/vector-icons";
 import React, { ReactElement } from "react";
-import { StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  NativeSyntheticEvent,
+  StyleSheet,
+  TextInput,
+  TextInputChangeEventData,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { COLORS, SIZES } from "../constants";
-import { BottomTabNavigationProp } from "../types";
+import { SearchProps } from "../types";
 
-const Search = ({
-  navigation,
-  route,
-}: BottomTabNavigationProp): ReactElement => {
+const Search = ({ navigation, onChange }: SearchProps): ReactElement => {
+  const handleOnChange = (
+    e: NativeSyntheticEvent<TextInputChangeEventData>
+  ) => {
+    const text = e.nativeEvent.text;
+    if (onChange) {
+      onChange(text);
+    }
+  };
+
   return (
     <View style={styles.inputWrapper}>
       <TouchableOpacity
@@ -17,10 +30,11 @@ const Search = ({
         <Ionicons name="search" size={SIZES.SMALL} color={COLORS.dark_gray} />
       </TouchableOpacity>
       <TextInput
-        showSoftInputOnFocus={false}
+        showSoftInputOnFocus={!onChange}
         placeholder="Pesquise por um colaborador"
         onFocus={() => navigation.navigate("Search")}
         style={styles.input}
+        onChange={handleOnChange}
       />
     </View>
   );

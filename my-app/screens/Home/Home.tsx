@@ -10,7 +10,7 @@ import fetchUsers from "../../controllers/fetchUsers";
 import { BottomTabNavigationProp, UserType } from "../../types";
 
 const Home = ({ navigation, route }: BottomTabNavigationProp): ReactElement => {
-  const [products, setProducts] = useState<UserType[]>([]);
+  const [userList, setUserList] = useState<UserType[]>([]);
 
   useEffect((): void => {
     const onLoadProducts = async (): Promise<void> => {
@@ -19,7 +19,7 @@ const Home = ({ navigation, route }: BottomTabNavigationProp): ReactElement => {
         data: UserType[];
       }>(`${HOST}:${PORT}/users`)
         .then((result) => {
-          setProducts(result.data);
+          setUserList(result.data);
         })
         .catch((error) => {
           console.error(error);
@@ -36,8 +36,8 @@ const Home = ({ navigation, route }: BottomTabNavigationProp): ReactElement => {
           <Text style={styles.title}>Colaboradores</Text>
           <Search navigation={navigation} route={route} />
           <View style={styles.cardWrapper}>
-            {products && products.length > 0 ? (
-              products.map((user: UserType, index: number) => {
+            {userList && userList.length > 0 ? (
+              userList.map((user: UserType, index: number) => {
                 return (
                   <View key={index} style={styles.userCard}>
                     <Text style={styles.cardLabel}>nome: {user.name}</Text>
